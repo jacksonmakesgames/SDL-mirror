@@ -2,7 +2,7 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
   message(FATAL_ERROR "Prevented in-tree built. Please create a build directory outside of the SDL source code and call cmake from there")
 endif()
 
-cmake_minimum_required(VERSION 2.8.11)
+cmake_minimum_required(VERSION 3.15)
 project(SDL2 C CXX)
 
 # !!! FIXME: this should probably do "MACOSX_RPATH ON" as a target property
@@ -2054,7 +2054,7 @@ endif()
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EXTRA_CFLAGS}")
 
 # Always build SDLmain
-add_library(SDL2main STATIC ${SDLMAIN_SOURCES})
+add_library(SDL2main OBJECT ${SDLMAIN_SOURCES})
 target_include_directories(SDL2main PUBLIC "$<BUILD_INTERFACE:${SDL2_SOURCE_DIR}/include>" $<INSTALL_INTERFACE:include> $<INSTALL_INTERFACE:include/SDL2>)
 set(_INSTALL_LIBS "SDL2main")
 if (NOT ANDROID)
