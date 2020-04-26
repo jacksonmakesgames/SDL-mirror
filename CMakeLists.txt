@@ -2237,3 +2237,7 @@ if(NOT TARGET uninstall)
   add_custom_target(uninstall
       COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
 endif()
+
+set_target_properties(SDL2main PROPERTIES FOLDER "Dependencies/SDL2")
+set_target_properties(SDL2-static PROPERTIES FOLDER "Dependencies/SDL2")
+set_target_properties(uninstall PROPERTIES FOLDER "Dependencies/SDL2")
